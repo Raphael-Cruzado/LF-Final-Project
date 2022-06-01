@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './pages/home';
-import { parseRoute } from './lib';
+import parseRoute from './lib/parse-route';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,16 +18,6 @@ export default class App extends React.Component {
   }
 
   // renderPage() {
-  //   const { route } = this.state;
-  //   if (route.path === '') {
-  //     return <Catalog />;
-  //   }
-  //   if (route.path === 'products') {
-  //     const productId = route.params.get('productId');
-  //     return <ProductDetails productId={productId} />;
-  //   }
-  //   return <NotFound />;
-  // }
 
   render() {
     return <Home />;
