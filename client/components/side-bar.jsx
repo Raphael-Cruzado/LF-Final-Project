@@ -18,15 +18,22 @@ export default function SideBar() {
       style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
     >
       <CDBSidebar textColor="#fff" backgroundColor="#B7D7BF">
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+        <CDBSidebarHeader prefix={<FaIcons.FaBars />}>
           <a
             href="/"
             className="text-decoration-none"
             style={{ color: 'inherit' }}
           >
-            Sidebar
+            username
           </a>
         </CDBSidebarHeader>
+        <CDBSidebarContent >
+          <CDBSidebarMenu prefix={<FaIcons.FaRegCalendarPlus />}>
+            <h4 id='class-header'>CLASSES <FaIcons.FaRegCalendarPlus /></h4>
+            <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
+            <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
+          </CDBSidebarMenu>
+        </CDBSidebarContent>
       </CDBSidebar>
     </div>
   );

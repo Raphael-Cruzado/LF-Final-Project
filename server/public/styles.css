@@ -1,3 +1,9 @@
+#class-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
 #plus {
   margin-top: 4px;
 }
