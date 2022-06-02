@@ -13,17 +13,20 @@ import * as FaIcons from 'react-icons/fa';
 
 export default function SideBar() {
   const [show, setShow] = useState('');
+  const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
 
   return (
+    <>
     <div
       style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
     >
       <CDBSidebar textColor="#fff" backgroundColor="#B7D7BF">
         <CDBSidebarHeader
         prefix={<FaIcons.FaBars onClick={() => {
-          active === true ? setActive(false) : setActive(true);
-          active === true ? setShow('CLASSES') : setShow('');
+          active ? setActive(false) : setActive(true);
+          active ? setShow('CLASSES') : setShow('');
+          active ? setLog('log-out') : setLog('');
         }}/>}>
           <a
             href="/"
@@ -43,7 +46,18 @@ export default function SideBar() {
             <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
           </CDBSidebarMenu>
         </CDBSidebarContent>
+          <CDBSidebarFooter style={{ textAlign: 'center' }}>
+            <div
+              className="sidebar-btn-wrapper"
+              style={{ padding: '20px 5px' }}
+            >
+              <h3>{log}</h3>
+              <FaIcons.FaDoorOpen size={25} cursor='pointer'/>
+            </div>
+          </CDBSidebarFooter>
       </CDBSidebar>
+
     </div>
+    </>
   );
 }

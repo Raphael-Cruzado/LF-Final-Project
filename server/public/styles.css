@@ -30,6 +30,6 @@ hr {
   height: 1px;
 }
 
-li {
-  list-style: none;
+#logout {
+  width: 3rem;
 }
