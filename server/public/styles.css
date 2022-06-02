@@ -1,4 +1,29 @@
-.icon {
+#plus {
+  margin-top: 4px;
+}
+
+#avatar {
   width: 6rem;
-  height: 6rem;
+}
+
+li {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* #class-list {
+  list-style-type: none;
+} */
+
+hr {
+  border: 0;
+  clear: both;
+  display: inline;
+  width: 80%;
+  background-color: #ff0;
+  height: 1px;
+}
+
+li {
+  list-style: none;
 }

@@ -17,7 +17,7 @@ export default class App extends React.Component {
     });
   }
 
-  // renderPage() {
+  // renderPage() {}
 
   render() {
     return <Home />;
