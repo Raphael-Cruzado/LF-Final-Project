@@ -38,23 +38,3 @@ export default function SideBar() {
     </div>
   );
 }
-
-// { /* <Container fluid="xxl xl lg md sm None">
-//   <Row>
-//     <Col id='navbar' xs="4" md="3">
-//       <img src="./img/unisex-avatar.svg" alt="avatar" id='avatar' />
-//       <Col id='class-header' md="3">
-//         <h3>Classes </h3>
-//         <span id='plus'><FaIcons.FaRegPlusSquare /></span>
-//       </Col>
-//       <hr />
-
-//       <Col id='class-list'>
-//         <ul>
-//           <li><h5>Dummy Class</h5></li>
-//         </ul>
-//       </Col>
-//     </Col>
-//     <Col id='homepage' />
-//   </Row>
-// </Container> */ }
