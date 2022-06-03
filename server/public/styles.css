@@ -53,3 +53,44 @@
   list-style: none;
   margin-top: 2rem;
 }
+
+hr {
+  border-color: #b7d7bf;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.deck-title {
+  margin-left: 2rem;
+}
+
+.center-deck-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0.5rem;
+  margin-left: 2rem;
+}
+
+.space-content {
+  justify-content: space-between;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#study-deck {
+  width: 6rem;
+  height: 4rem;
+  background-color: #b7d7bf;
+  border-style: none;
+  margin-right: 5rem;
+  position: relative;
+  bottom: 1rem;
+}
