@@ -4,32 +4,6 @@
   margin-bottom: 2rem;
 }
 
-#plus {
-  margin-top: 4px;
-}
-
-#avatar {
-  width: 6rem;
-}
-
-li {
-  list-style: none;
-  padding-left: 0;
-}
-
-/* #class-list {
-  list-style-type: none;
-} */
-
-hr {
-  border: 0;
-  clear: both;
-  display: inline;
-  width: 80%;
-  background-color: #ff0;
-  height: 1px;
-}
-
-#logout {
-  width: 3rem;
+.hello {
+  display: flex;
 }

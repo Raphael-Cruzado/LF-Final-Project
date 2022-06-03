@@ -18,9 +18,6 @@ export default function SideBar() {
 
   return (
     <>
-    <div
-      style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
-    >
       <CDBSidebar textColor="#fff" backgroundColor="#B7D7BF">
         <CDBSidebarHeader
         prefix={<FaIcons.FaBars onClick={() => {
@@ -56,8 +53,8 @@ export default function SideBar() {
             </div>
           </CDBSidebarFooter>
       </CDBSidebar>
-
-    </div>
     </>
   );
 }
+
+// style = {{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}
