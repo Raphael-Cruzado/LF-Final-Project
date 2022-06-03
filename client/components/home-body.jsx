@@ -6,6 +6,7 @@ import {
 import { Row, Col } from 'react-bootstrap/';
 import * as FaIcons from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from '../components/home-modal';
 
 export default function HomeBody() {
   return (
@@ -31,10 +32,11 @@ export default function HomeBody() {
         <hr />
         <Row className='deck-row'>
           <Col className='flex-row'>
-            <FaIcons.FaPlusSquare size={50} />
+            <FaIcons.FaPlusSquare size={50} cursor='pointer' onClick={() => {}} />
             <h2 className='deck-title'>Create New Deck</h2>
           </Col>
         </Row>
+        <Modal />
       </CDBBox>
     </>
   );

@@ -65,6 +65,7 @@ hr {
 
 .deck-title {
   margin-left: 2rem;
+  cursor: pointer;
 }
 
 .center-deck-item {
