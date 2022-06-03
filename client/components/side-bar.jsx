@@ -30,7 +30,7 @@ export default function SideBar() {
             className="text-decoration-none"
             style={{ color: 'inherit' }}
           >
-            Flash Cards
+            username
           </a>
         </CDBSidebarHeader>
         <CDBSidebarContent >

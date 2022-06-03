@@ -37,3 +37,19 @@
 #pen {
   margin-top: 11px;
 }
+
+#deck-wrapper {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-row {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#deck-list {
+  list-style: none;
+  margin-top: 2rem;
+}

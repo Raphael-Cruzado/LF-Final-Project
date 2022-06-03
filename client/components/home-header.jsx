@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CDBContainer,
   CDBBox,
   CDBBtn
 } from 'cdbreact';
@@ -10,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function HomeHeader() {
   return (
-    <CDBContainer>
+    <>
       <CDBBox id='home-header' display='flex' justifyContent='start'>
         <Row className='header-img'>
             <Col>
@@ -29,6 +28,8 @@ export default function HomeHeader() {
         </Row>
       </CDBBox>
       <hr />
-    </CDBContainer>
+      <h3>Decks</h3>
+      <hr />
+    </>
   );
 }
