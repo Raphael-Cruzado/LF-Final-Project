@@ -4,6 +4,36 @@
   margin-bottom: 2rem;
 }
 
-.hello {
+#home-header {
+  margin-top: 8rem;
+}
+
+.header-img {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+#header-name {
   display: flex;
+  flex-direction: row;
+  width: 20rem;
+  justify-content: space-evenly;
+}
+
+#avatar {
+  width: 10rem;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+#study-btn {
+  width: 70%;
+  height: 3rem;
+  background-color: #b7d7bf;
+  border-style: none;
+  margin-top: 1rem;
+}
+
+#pen {
+  margin-top: 11px;
 }
