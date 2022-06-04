@@ -11,13 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home(props) {
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
+  <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
       <SideBar />
       <CDBContainer>
         <HomeHeader />
         <HomeBody />
       </CDBContainer>
-    </div>
-
+  </div>
   );
 }

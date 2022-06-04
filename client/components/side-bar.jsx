@@ -37,7 +37,9 @@ export default function SideBar() {
           <CDBSidebarMenu prefix={<FaIcons.FaRegCalendarPlus />}>
             <h4
             id='class-header'>{show}
-            <FaIcons.FaRegCalendarPlus />
+            <FaIcons.FaRegCalendarPlus
+              cursor='pointer'
+            />
             </h4>
             <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
             <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
@@ -56,5 +58,3 @@ export default function SideBar() {
     </>
   );
 }
-
-// style = {{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}

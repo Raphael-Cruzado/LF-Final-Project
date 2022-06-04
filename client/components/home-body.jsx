@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CDBBox,
   CDBBtn
@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from '../components/home-modal';
 
 export default function HomeBody() {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       <CDBBox display='flex' justufy-content='flex-start' id='deck-wrapper'>
@@ -32,11 +33,13 @@ export default function HomeBody() {
         <hr />
         <Row className='deck-row'>
           <Col className='flex-row'>
-            <FaIcons.FaPlusSquare size={50} cursor='pointer' onClick={() => {}} />
+            <FaIcons.FaPlusSquare size={50}
+            cursor='pointer'
+            onClick={() => { setOpenModal(true); }} />
             <h2 className='deck-title'>Create New Deck</h2>
           </Col>
         </Row>
-        <Modal />
+        {openModal && <Modal closeModal={setOpenModal}/>}
       </CDBBox>
     </>
   );
