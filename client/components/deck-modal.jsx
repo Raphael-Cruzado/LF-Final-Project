@@ -1,19 +1,15 @@
 import React from 'react';
 import {
-  Container,
-  Row,
-  Col
 } from 'react-bootstrap/';
 import {
   CDBBtn,
   CDBInput
 } from 'cdbreact';
 
-import * as FaIcons from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function Modal({ closeModal }) {
+export default function DeckModal({ closeModal }) {
   return (
       <div className='modal-container'>
         <div>

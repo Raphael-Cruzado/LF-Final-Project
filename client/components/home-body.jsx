@@ -6,13 +6,14 @@ import {
 import { Row, Col } from 'react-bootstrap/';
 import * as FaIcons from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Modal from '../components/home-modal';
+import DeckModal from '../components/deck-modal';
+import ClassModal from '../components/class-modal';
 
 export default function HomeBody() {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
-      <CDBBox display='flex' justufy-content='flex-start' id='deck-wrapper'>
+      <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
         <ul id='deck-list'>
           <Row className='deck-row'>
             <li className='flex-row space-content'>
@@ -39,7 +40,8 @@ export default function HomeBody() {
             <h2 className='deck-title'>Create New Deck</h2>
           </Col>
         </Row>
-        {openModal && <Modal closeModal={setOpenModal}/>}
+        {openModal && <DeckModal closeModal={setOpenModal} />}
+        {openModal && <ClassModal closeModal={setOpenModal} />}
       </CDBBox>
     </>
   );

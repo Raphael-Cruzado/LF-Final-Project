@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar() {
+export default function SideBar({ closeModal }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
@@ -34,7 +34,8 @@ export default function SideBar() {
           </a>
         </CDBSidebarHeader>
         <CDBSidebarContent >
-          <CDBSidebarMenu prefix={<FaIcons.FaRegCalendarPlus />}>
+          <CDBSidebarMenu prefix={<FaIcons.FaRegCalendarPlus
+            onClick={() => { setOpenModal(true); }} />}>
             <h4
             id='class-header'>{show}
             <FaIcons.FaRegCalendarPlus
