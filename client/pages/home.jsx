@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SideBar from '../components/side-bar';
 import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
+import ClassModal from '../components/class-modal';
 
 import {
   CDBContainer
@@ -9,11 +10,15 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home(props) {
+export default function Home() {
+  const [openClassModal, setOpenClassModal] = useState(false);
   return (
-  <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <SideBar />
+  <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
+      <SideBar
+      toggleClassModal={() => setOpenClassModal(!openClassModal) }
+      />
       <CDBContainer>
+        {openClassModal && <ClassModal closeClassModal={setOpenClassModal} /> }
         <HomeHeader />
         <HomeBody />
       </CDBContainer>

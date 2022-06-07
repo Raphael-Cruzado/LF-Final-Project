@@ -9,11 +9,11 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function DeckModal({ closeModal }) {
+export default function DeckModal({ toggleDeckModal }) {
   return (
       <div className='modal-container'>
         <div>
-          <button className='close-btn' onClick={() => { closeModal(false); }}> X </button>
+          <button className='close-btn' onClick={() => { toggleDeckModal(false); }}> X </button>
         </div>
         <div className='modal-title'><h1>Create New Deck</h1></div>
         <div className='modal-text'>

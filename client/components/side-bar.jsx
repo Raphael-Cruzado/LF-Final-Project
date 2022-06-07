@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar({ closeModal }) {
+export default function SideBar({ toggleClassModal }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
@@ -34,13 +34,12 @@ export default function SideBar({ closeModal }) {
           </a>
         </CDBSidebarHeader>
         <CDBSidebarContent >
-          <CDBSidebarMenu prefix={<FaIcons.FaRegCalendarPlus
-            onClick={() => { setOpenModal(true); }} />}>
+          <CDBSidebarMenu>
             <h4
             id='class-header'>{show}
-            <FaIcons.FaRegCalendarPlus
+            <FaIcons.FaRegCalendarPlus size={29}
               cursor='pointer'
-            />
+              onClick={() => toggleClassModal(true)} />
             </h4>
             <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
             <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>

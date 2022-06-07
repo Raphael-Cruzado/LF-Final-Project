@@ -7,10 +7,10 @@ import { Row, Col } from 'react-bootstrap/';
 import * as FaIcons from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DeckModal from '../components/deck-modal';
-import ClassModal from '../components/class-modal';
 
 export default function HomeBody() {
-  const [openModal, setOpenModal] = useState(false);
+  const [openDeckModal, setOpenDeckModal] = useState(false);
+
   return (
     <>
       <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
@@ -36,12 +36,11 @@ export default function HomeBody() {
           <Col className='flex-row'>
             <FaIcons.FaPlusSquare size={50}
             cursor='pointer'
-            onClick={() => { setOpenModal(true); }} />
-            <h2 className='deck-title'>Create New Deck</h2>
+            onClick={() => { setOpenDeckModal(true); }} />
+            <h2 className='deck-title' onClick={() => { setOpenDeckModal(true); }}>Create New Deck</h2>
           </Col>
         </Row>
-        {openModal && <DeckModal closeModal={setOpenModal} />}
-        {openModal && <ClassModal closeModal={setOpenModal} />}
+        {openDeckModal && <DeckModal toggleDeckModal={setOpenDeckModal} />}
       </CDBBox>
     </>
   );
