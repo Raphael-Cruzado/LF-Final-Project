@@ -95,3 +95,9 @@ hr {
   position: relative;
   bottom: 1rem;
 }
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25rem;
+}

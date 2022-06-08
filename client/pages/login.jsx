@@ -9,7 +9,7 @@ import {
 export default function Login() {
   return (
     <form action="">
-      <CDBContainer>
+      <CDBContainer className='form-container'>
         <CDBCard style={{ width: '40rem' }}>
           <div className="text-center text-white" style={{ background: '#b7d7bf' }}>
             <p className="h5 mt-2 py-4 font-weight-bold"> Sign up </p>
