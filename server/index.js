@@ -12,18 +12,18 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.static(publicPath));
+app.use(express.json());
 
-app.get('/api/users', (req, res, next) => {
+app.get('/api/flashCards', (req, res, next) => {
   const sql = `
-    select "userId",
-          "firstName",
-          "lastName",
-          "email",
-          "hashedPassword"
-    from users;
+    select *
+    from "users"
+    order by "userId"
   `;
   db.query(sql)
-    .then(result => res.json(result.rows))
+    .then(result => {
+      res.json(result.rows);
+    })
     .catch(err => next(err));
 });
 
