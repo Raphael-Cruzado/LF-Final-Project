@@ -17,7 +17,7 @@ CREATE TABLE "users" (
 CREATE TABLE "decks" (
     "deckId" serial NOT NULL,
     "deckName" TEXT NOT NULL,
-    "userId" integer NOT NULL,
+    "classId" integer NOT NULL,
     CONSTRAINT "decks_pk" PRIMARY KEY ("deckId")
 ) WITH (
   OIDS=FALSE
@@ -31,5 +31,14 @@ CREATE TABLE "cards" (
 ) WITH (
   OIDS=FALSE
 );
-ALTER TABLE "decks" ADD CONSTRAINT "decks_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
+CREATE TABLE "classes" (
+    "classId" serial NOT NULL,
+    "className" TEXT NOT NULL,
+    "userId" integer NOT NULL,
+    CONSTRAINT "classes_pk" PRIMARY KEY ("classId")
+) WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "decks" ADD CONSTRAINT "decks_fk0" FOREIGN KEY ("classId") REFERENCES "classes"("classId");
 ALTER TABLE "cards" ADD CONSTRAINT "cards_fk0" FOREIGN KEY ("deckId") REFERENCES "decks"("deckId");
+ALTER TABLE "classes" ADD CONSTRAINT "classes_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
