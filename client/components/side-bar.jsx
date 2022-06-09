@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar({ toggleClassModal, inputText, setInputText, classList, setClassList }) {
+export default function SideBar({ toggleClassModal, classList, setClassList }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);

@@ -8,17 +8,17 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function ClassModal({ closeClassModal, inputText, setInputText, classList, setClassList }) {
+export default function ClassModal({ closeClassModal, inputClassText, setInputClassText, classList, setClassList }) {
 
   const inputTextHandler = e => {
-    setInputText(e.target.value);
+    setInputClassText(e.target.value);
   };
 
   const submitClassHandler = e => {
     e.preventDefault();
     setClassList([
       // set an id at the end of the object when using the db, but for now, 1
-      ...classList, { text: inputText }
+      ...classList, { text: inputClassText }
     ]);
   };
 
@@ -34,7 +34,7 @@ export default function ClassModal({ closeClassModal, inputText, setInputText, c
           A Class is a set of Flashcards, grouped into Decks
         </div>
         <CDBInput
-          value={inputText}
+          value={inputClassText}
           type="text"
           placeholder="Text"
           color="success"
