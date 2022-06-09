@@ -9,7 +9,18 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function DeckModal({ toggleDeckModal }) {
+export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeckText, deckList, setDeckList }) {
+  const inputTextHandler = e => {
+    setInputDeckText(e.target.value);
+  };
+
+  const submitDeckHandler = e => {
+    e.preventDefault();
+    setDeckList([
+      ...deckList, { text: inputDeckText }
+    ]);
+  };
+
   return (
     <form>
       <div className='modal-container'>
@@ -20,9 +31,14 @@ export default function DeckModal({ toggleDeckModal }) {
         <div className='modal-text'>
           A Deck is a subset of Flashcards in a Class, similar to chapters in a book
         </div>
-        <CDBInput type="text" placeholder="Text" color="success" />
+        <CDBInput
+        onChange={inputTextHandler}
+        value={inputDeckText}
+        type="text"
+        placeholder="Insert deck name here"
+        color="success" />
         <div className='modal-footer'>
-          <CDBBtn className='modal-btn' circle>
+          <CDBBtn onClick={submitDeckHandler} type='submit' className='modal-btn' circle>
             <h4>Create</h4>
           </CDBBtn>
         </div>
