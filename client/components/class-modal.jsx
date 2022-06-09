@@ -36,7 +36,7 @@ export default function ClassModal({ closeClassModal, inputClassText, setInputCl
         <CDBInput
           value={inputClassText}
           type="text"
-          placeholder="Text"
+          placeholder="Insert new Class here"
           color="success"
           onChange={inputTextHandler} />
         <div className='modal-footer'>

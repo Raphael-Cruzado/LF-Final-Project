@@ -35,7 +35,7 @@ export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeck
         onChange={inputTextHandler}
         value={inputDeckText}
         type="text"
-        placeholder="Insert deck name here"
+        placeholder="Insert new Deck here"
         color="success" />
         <div className='modal-footer'>
           <CDBBtn onClick={submitDeckHandler} type='submit' className='modal-btn' circle>
