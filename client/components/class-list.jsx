@@ -3,12 +3,13 @@ import {
   CDBSidebarMenuItem
 } from 'cdbreact';
 
-function ClassList({ inputText, classList }) {
-
+function ClassList({ classList }) {
   return (
-    <li>
-      <CDBSidebarMenuItem icon='sticky-note'>{inputText}</CDBSidebarMenuItem>
-    </li>
+    classList.map(classItem =>
+      <li key={classItem}>
+        <CDBSidebarMenuItem icon='sticky-note'>{classItem.text}</CDBSidebarMenuItem>
+      </li>
+    )
   );
 }
 

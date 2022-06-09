@@ -19,10 +19,7 @@ export default function Home() {
   <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
       <SideBar
         toggleClassModal={() => setOpenClassModal(!openClassModal) }
-        inputText={inputText}
-        setInputText={setInputText}
-        classList={classList.map}
-        setClassList={setClassList}
+        classList={classList}
       />
       <CDBContainer>
         {openClassModal && <ClassModal

@@ -43,8 +43,6 @@ export default function SideBar({ toggleClassModal, inputText, setInputText, cla
             </h4>
             <ul className='class-list'>
               <ClassList
-              inputText={inputText}
-              setInputText={setInputText}
               classList={classList}
               />
             </ul>

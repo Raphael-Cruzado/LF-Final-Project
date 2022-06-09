@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 } from 'react-bootstrap/';
 import {
   CDBBtn,
   CDBInput
 } from 'cdbreact';
-
-import ClassList from './class-list';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
@@ -14,7 +12,6 @@ export default function ClassModal({ closeClassModal, inputText, setInputText, c
 
   const inputTextHandler = e => {
     setInputText(e.target.value);
-    console.log(e.target.value);
   };
 
   const submitClassHandler = e => {
@@ -23,7 +20,6 @@ export default function ClassModal({ closeClassModal, inputText, setInputText, c
       // set an id at the end of the object when using the db, but for now, 1
       ...classList, { text: inputText }
     ]);
-    console.log(classList[1].text);
   };
 
   return (
