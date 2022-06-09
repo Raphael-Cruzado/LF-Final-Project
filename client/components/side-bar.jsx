@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import ClassList from './class-list';
 import {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem
+  CDBSidebarMenu
 } from 'cdbreact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar({ toggleClassModal }) {
+export default function SideBar({ toggleClassModal, inputText, setInputText, classList, setClassList }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
@@ -41,8 +41,13 @@ export default function SideBar({ toggleClassModal }) {
               cursor='pointer'
               onClick={() => toggleClassModal(true)} />
             </h4>
-            <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon='sticky-note'>Dummy Class</CDBSidebarMenuItem>
+            <ul className='class-list'>
+              <ClassList
+              inputText={inputText}
+              setInputText={setInputText}
+              classList={classList}
+              />
+            </ul>
           </CDBSidebarMenu>
         </CDBSidebarContent>
           <CDBSidebarFooter style={{ textAlign: 'center' }}>

@@ -11,6 +11,7 @@ import '../components/modal.css';
 
 export default function DeckModal({ toggleDeckModal }) {
   return (
+    <form>
       <div className='modal-container'>
         <div>
           <button className='close-btn' onClick={() => { toggleDeckModal(false); }}> X </button>
@@ -26,5 +27,6 @@ export default function DeckModal({ toggleDeckModal }) {
           </CDBBtn>
         </div>
       </div>
+    </form>
   );
 }

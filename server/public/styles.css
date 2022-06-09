@@ -101,3 +101,9 @@ hr {
   justify-content: center;
   margin-top: 25rem;
 }
+
+.class-list {
+  list-style: none;
+  position: relative;
+  right: 1rem;
+}

@@ -30,7 +30,8 @@ app.get('/api/users', (req, res, next) => {
 });
 
 app.get('/api/users/:userId', (req, res, next) => {
-  const userId = Number(req.params.userId);
+  const userId = 10;
+  // const userId = Number(req.params.userId);
   if (!Number.isInteger(userId) || userId < 1) {
     throw new ClientError(400, 'userId must be positive Interger');
   }
