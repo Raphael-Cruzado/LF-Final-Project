@@ -13,7 +13,7 @@ function ClassList({ classList, setClassList }) {
   return (
     classList.map(classItem =>
       // set the id here for wen u do db stuff classItem.Id
-      <li key={classItem}>
+      <li key={classItem.id}>
         <CDBSidebarMenuItem icon='sticky-note'>
           {classItem.text}
           <FaIcons.FaTrashAlt

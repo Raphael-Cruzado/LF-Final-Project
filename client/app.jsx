@@ -7,8 +7,11 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: parseRoute(window.location.hash)
+      route: parseRoute(window.location.hash),
+      userId: []
     };
+    this.getUserId = this.getUserId.bind(this);
+    this.getUserId();
   }
 
   componentDidMount() {
@@ -18,10 +21,16 @@ export default class App extends React.Component {
     });
   }
 
+  getUserId() {
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(data => data.map(user => this.state.userId.push(user.userId)));
+  }
+
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Home />;
+      return <Home userId={this.state.userId} />;
     }
     if (route.path === 'login') {
       return <Login />;

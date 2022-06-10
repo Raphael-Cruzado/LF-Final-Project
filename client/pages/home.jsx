@@ -10,7 +10,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home() {
+export default function Home({ userId }) {
   const [openClassModal, setOpenClassModal] = useState(false);
   const [inputClassText, setInputClassText] = useState('');
   const [classList, setClassList] = useState([]);
@@ -29,6 +29,7 @@ export default function Home() {
         setInputClassText={setInputClassText}
         setClassList={setClassList}
         setOpenClassModal={setOpenClassModal}
+        userId={userId}
       /> }
         <LandingPage />
         <HomeHeader />

@@ -8,7 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function ClassModal({ setOpenClassModal, inputClassText, setInputClassText, classList, setClassList }) {
+export default function ClassModal({ setOpenClassModal, inputClassText, setInputClassText, classList, setClassList, userId }) {
 
   const inputTextHandler = e => {
     setInputClassText(e.target.value);
@@ -20,11 +20,25 @@ export default function ClassModal({ setOpenClassModal, inputClassText, setInput
       // set an id at the end of the object when using the db, but for now, 1
       ...classList, { text: inputClassText, id: Math.random() }
     ]);
+    const classItemText = inputClassText;
+    console.log('classItemText ', classItemText);
+    const user = userId[0];
+    console.log(user);
+    // const formData = new FormData();
+    // formData.append('classItem', classItemText);
+    // formData.append('user', user);
+    fetch('/api/classes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
   };
 
   return (
   // <div className='modal-background'>
-    <form>
+    <form onSubmit={submitClassHandler}>
       <div className='modal-container'>
         <div>
           <button className='close-btn' onClick={() => { setOpenClassModal(false); }}> X </button>
@@ -40,7 +54,7 @@ export default function ClassModal({ setOpenClassModal, inputClassText, setInput
           color="success"
           onChange={inputTextHandler} />
         <div className='modal-footer'>
-          <CDBBtn onClick={submitClassHandler} className='modal-btn' type='submit' circle>
+          <CDBBtn className='modal-btn' type='submit' circle>
             <h4>Create</h4>
           </CDBBtn>
         </div>

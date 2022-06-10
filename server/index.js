@@ -56,7 +56,7 @@ app.get('/api/classes/:classId', (req, res, next) => {
   }
   const sql = `
     select *
-    from "class"
+    from "classes"
     where "classId" = $1
   `;
   const params = [classId];
@@ -68,20 +68,40 @@ app.get('/api/classes/:classId', (req, res, next) => {
 });
 
 app.post('/api/classes', (req, res, next) => {
+  const className = req.body;
+  const userId = req.body;
+  console.log(userId);
+  if (!className) {
+    throw new ClientError(400, 'class name is a required field');
+  }
+  const sql = `
+    insert into "classes" ("className", "userId")
+    values ($1, $2)
+    returning *
+  `;
+  const params = [className, userId];
+  db.query(sql, params)
+    .then(result => {
+      const [newClass] = result.rows;
+      res.json(201).json(newClass);
+    })
+    .catch(err => next(err));
+});
+
+app.delete('/api/classes', (req, res, next) => {
   const className = req.body.className;
   if (!className) {
     throw new ClientError(400, 'class name is a required field');
   }
   const sql = `
-    insert into "classes" ("className")
-    values ($1)
-    returning *
+  delete from "classes"
+  where "className" = $1
+  returning *
   `;
   const params = [className];
   db.query(sql, params)
     .then(result => {
-      const [newClass] = result.rows;
-      res.json(201).json(newClass);
+      res.json(result.rows);
     })
     .catch(err => next(err));
 });
@@ -98,6 +118,7 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       const sql = `
   insert into "users" ("firstName", "lastName", "email", "hashedPassword")
   values ($1, $2, $3, $4)
+  order by "userId"
   returning *
   `;
 
