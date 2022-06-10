@@ -20,6 +20,7 @@ export default function Home() {
       <SideBar
         toggleClassModal={() => setOpenClassModal(!openClassModal) }
         classList={classList}
+        setClassList={setClassList}
       />
       <CDBContainer>
         {openClassModal && <ClassModal

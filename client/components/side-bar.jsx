@@ -44,6 +44,7 @@ export default function SideBar({ toggleClassModal, classList, setClassList }) {
             <ul className='class-list'>
               <ClassList
               classList={classList}
+              setClassList={setClassList}
               />
             </ul>
           </CDBSidebarMenu>

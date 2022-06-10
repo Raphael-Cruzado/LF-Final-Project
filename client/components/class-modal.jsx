@@ -18,7 +18,7 @@ export default function ClassModal({ closeClassModal, inputClassText, setInputCl
     e.preventDefault();
     setClassList([
       // set an id at the end of the object when using the db, but for now, 1
-      ...classList, { text: inputClassText }
+      ...classList, { text: inputClassText, id: Math.random() }
     ]);
   };
 
