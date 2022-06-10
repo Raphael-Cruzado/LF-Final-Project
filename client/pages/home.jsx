@@ -3,7 +3,7 @@ import SideBar from '../components/side-bar';
 import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
 import ClassModal from '../components/class-modal';
-
+import LandingPage from '../components/landing-page';
 import {
   CDBContainer
 } from 'cdbreact';
@@ -28,8 +28,9 @@ export default function Home() {
         inputClassText={inputClassText}
         setInputClassText={setInputClassText}
         setClassList={setClassList}
-        closeClassModal={setOpenClassModal}
+        setOpenClassModal={setOpenClassModal}
       /> }
+        <LandingPage />
         <HomeHeader />
         <HomeBody />
       </CDBContainer>

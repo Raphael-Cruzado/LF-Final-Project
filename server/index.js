@@ -48,6 +48,44 @@ app.get('/api/users/:userId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/classes/:classId', (req, res, next) => {
+  const classId = Number(req.params.classId);
+  // const userId = Number(req.params.userId);
+  if (!Number.isInteger(classId) || classId < 1) {
+    throw new ClientError(400, 'userId must be positive Interger');
+  }
+  const sql = `
+    select *
+    from "class"
+    where "classId" = $1
+  `;
+  const params = [classId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+app.post('/api/classes', (req, res, next) => {
+  const className = req.body.className;
+  if (!className) {
+    throw new ClientError(400, 'class name is a required field');
+  }
+  const sql = `
+    insert into "classes" ("className")
+    values ($1)
+    returning *
+  `;
+  const params = [className];
+  db.query(sql, params)
+    .then(result => {
+      const [newClass] = result.rows;
+      res.json(201).json(newClass);
+    })
+    .catch(err => next(err));
+});
+
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {

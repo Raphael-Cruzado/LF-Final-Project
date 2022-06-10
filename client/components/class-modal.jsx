@@ -8,7 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function ClassModal({ closeClassModal, inputClassText, setInputClassText, classList, setClassList }) {
+export default function ClassModal({ setOpenClassModal, inputClassText, setInputClassText, classList, setClassList }) {
 
   const inputTextHandler = e => {
     setInputClassText(e.target.value);
@@ -27,7 +27,7 @@ export default function ClassModal({ closeClassModal, inputClassText, setInputCl
     <form>
       <div className='modal-container'>
         <div>
-          <button className='close-btn' onClick={() => { closeClassModal(false); }}> X </button>
+          <button className='close-btn' onClick={() => { setOpenClassModal(false); }}> X </button>
         </div>
         <div className='modal-title'><h1>Create New Class</h1></div>
         <div className='modal-text'>
