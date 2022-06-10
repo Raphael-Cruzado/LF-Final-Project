@@ -17,7 +17,7 @@ export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeck
   const submitDeckHandler = e => {
     e.preventDefault();
     setDeckList([
-      ...deckList, { text: inputDeckText }
+      ...deckList, { text: inputDeckText, id: Math.random() }
     ]);
   };
 

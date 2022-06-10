@@ -17,7 +17,10 @@ export default function HomeBody() {
     <>
       <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
         <ul id='deck-list'>
-          <DeckList deckList={deckList} />
+          <DeckList
+          deckList={deckList}
+          setDeckList={setDeckList}
+          />
         </ul>
         <Row className='deck-row'>
           <Col className='flex-row'>
