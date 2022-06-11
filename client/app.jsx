@@ -30,9 +30,9 @@ export default class App extends React.Component {
   getClassName() {
     fetch('api/classes')
       .then(res => res.json())
-      .then(data => data.push(data.classId));
+      .then(data => );
   }
-
+data.push(data.classId)
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
