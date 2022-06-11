@@ -21,18 +21,14 @@ export default function ClassModal({ setOpenClassModal, inputClassText, setInput
       ...classList, { text: inputClassText, id: Math.random() }
     ]);
     const classItemText = inputClassText;
-    console.log('classItemText ', classItemText);
     const user = userId[0];
-    console.log(user);
-    // const formData = new FormData();
-    // formData.append('classItem', classItemText);
-    // formData.append('user', user);
+    const userObject = { classItemText, user };
     fetch('/api/classes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(userObject)
     });
   };
 

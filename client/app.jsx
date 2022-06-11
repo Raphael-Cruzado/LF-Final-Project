@@ -27,6 +27,12 @@ export default class App extends React.Component {
       .then(data => data.map(user => this.state.userId.push(user.userId)));
   }
 
+  getClassName() {
+    fetch('api/classes')
+      .then(res => res.json())
+      .then(data => data.push(data.classId));
+  }
+
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {

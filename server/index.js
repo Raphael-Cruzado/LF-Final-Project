@@ -48,6 +48,19 @@ app.get('/api/users/:userId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/classes', (req, res, next) => {
+  const sql = `
+    select *
+    from "classes"
+    order by "classId"
+  `;
+  db.query(sql)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
 app.get('/api/classes/:classId', (req, res, next) => {
   const classId = Number(req.params.classId);
   // const userId = Number(req.params.userId);
@@ -68,9 +81,10 @@ app.get('/api/classes/:classId', (req, res, next) => {
 });
 
 app.post('/api/classes', (req, res, next) => {
-  const className = req.body;
-  const userId = req.body;
-  console.log(userId);
+  const className = req.body.classItemText;
+  const userId = req.body.user;
+  console.log('className: ', className);
+  console.log('userId: ', userId);
   if (!className) {
     throw new ClientError(400, 'class name is a required field');
   }
@@ -83,7 +97,7 @@ app.post('/api/classes', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       const [newClass] = result.rows;
-      res.json(201).json(newClass);
+      res.status(201).json(newClass);
     })
     .catch(err => next(err));
 });
