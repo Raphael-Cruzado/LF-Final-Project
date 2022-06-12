@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   CDBSidebarMenuItem
 } from 'cdbreact';
 import * as FaIcons from 'react-icons/fa';
 
 function ClassList({ classList, setClassList, classData }) {
+
   const deleteHandler = e => {
     fetch(`/api/classes/${e}`, {
       method: 'DELETE',

@@ -12,9 +12,7 @@ export default class App extends React.Component {
       classData: []
     };
     this.getUserId = this.getUserId.bind(this);
-    this.getUserId();
-    this.getClassName = this.getClassName.bind(this);
-    this.getClassName();
+    this.getClassData = this.getClassData.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +20,12 @@ export default class App extends React.Component {
       e.preventDefault();
       this.setState({ route: parseRoute(window.location.hash) });
     });
+    this.setState(this.getUserId());
+    this.setState(this.getClassData());
+  }
+
+  componentDidUpdate() {
+    console.log('component did mount');
   }
 
   getUserId() {
@@ -30,7 +34,7 @@ export default class App extends React.Component {
       .then(data => data.map(user => this.state.userId.push(user.userId)));
   }
 
-  getClassName() {
+  getClassData() {
     fetch('api/classes')
       .then(res => res.json())
       .then(data => data.map(Class => this.state.classData.push(Class)));
@@ -47,6 +51,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log('classData: ', this.state.classData);
     return (
       <>
       {this.renderPage()}
