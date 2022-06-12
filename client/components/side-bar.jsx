@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar({ toggleClassModal, classList, setClassList }) {
+export default function SideBar({ toggleClassModal, classList, setClassList, classData }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
@@ -45,6 +45,7 @@ export default function SideBar({ toggleClassModal, classList, setClassList }) {
               <ClassList
               classList={classList}
               setClassList={setClassList}
+              classData={classData}
               />
             </ul>
           </CDBSidebarMenu>

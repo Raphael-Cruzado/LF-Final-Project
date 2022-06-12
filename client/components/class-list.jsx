@@ -4,20 +4,24 @@ import {
 } from 'cdbreact';
 import * as FaIcons from 'react-icons/fa';
 
-function ClassList({ classList, setClassList }) {
-
+function ClassList({ classList, setClassList, classData }) {
   const deleteHandler = e => {
-    setClassList(classList.filter(classItem => classItem.id !== e.id));
+    fetch(`/api/classes/${e}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   };
 
+  // when new data is added, it doesn't append to page immediately, but does it on page refresh
   return (
-    classList.map(classItem =>
-      // set the id here for wen u do db stuff classItem.Id
-      <li key={classItem.id}>
+    classData.map(classItem =>
+      <li key={classItem.classId}>
         <CDBSidebarMenuItem icon='sticky-note'>
-          {classItem.text}
+          {classItem.className}
           <FaIcons.FaTrashAlt
-          onClick={() => deleteHandler(classItem)}
+          onClick={() => deleteHandler(classItem.classId)}
           cursor='pointer'
           size={20} className='center-deck-item'
           style={{ position: 'relative', left: '5rem', bottom: '1rem' }}

@@ -10,7 +10,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home({ userId }) {
+export default function Home({ userId, classData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
   const [inputClassText, setInputClassText] = useState('');
   const [classList, setClassList] = useState([]);
@@ -21,6 +21,7 @@ export default function Home({ userId }) {
         toggleClassModal={() => setOpenClassModal(!openClassModal) }
         classList={classList}
         setClassList={setClassList}
+        classData={classData}
       />
       <CDBContainer>
         {openClassModal && <ClassModal

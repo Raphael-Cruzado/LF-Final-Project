@@ -8,10 +8,13 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       route: parseRoute(window.location.hash),
-      userId: []
+      userId: [],
+      classData: []
     };
     this.getUserId = this.getUserId.bind(this);
     this.getUserId();
+    this.getClassName = this.getClassName.bind(this);
+    this.getClassName();
   }
 
   componentDidMount() {
@@ -30,13 +33,13 @@ export default class App extends React.Component {
   getClassName() {
     fetch('api/classes')
       .then(res => res.json())
-      .then(data => );
+      .then(data => data.map(Class => this.state.classData.push(Class)));
   }
-data.push(data.classId)
+
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Home userId={this.state.userId} />;
+      return <Home userId={this.state.userId} classData={this.state.classData} />;
     }
     if (route.path === 'login') {
       return <Login />;
