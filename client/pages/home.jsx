@@ -24,6 +24,7 @@ export default function Home({ user, classData }) {
         {openClassModal && <ClassModal
         setOpenClassModal={setOpenClassModal}
         user={user}
+        classData={classData}
       /> }
         <LandingPage />
         <HomeHeader />

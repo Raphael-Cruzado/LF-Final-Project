@@ -8,7 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function ClassModal({ setOpenClassModal, classList, setClassList, user }) {
+export default function ClassModal({ setOpenClassModal, user, classData }) {
   const [inputClassText, setInputClassText] = useState('');
 
   const inputTextHandler = e => {
@@ -26,7 +26,9 @@ export default function ClassModal({ setOpenClassModal, classList, setClassList,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userObject)
-    });
+    })
+      .then(res => res.json())
+      .then(data => classData.push(data));
   };
 
   return (
