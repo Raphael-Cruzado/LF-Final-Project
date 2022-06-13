@@ -10,27 +10,20 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home({ userId, classData }) {
+export default function Home({ user, classData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
-  const [inputClassText, setInputClassText] = useState('');
-  const [classList, setClassList] = useState([]);
 
   return (
   <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
       <SideBar
         toggleClassModal={() => setOpenClassModal(!openClassModal) }
-        classList={classList}
-        setClassList={setClassList}
         classData={classData}
+        user={user}
       />
       <CDBContainer>
         {openClassModal && <ClassModal
-        classList={classList}
-        inputClassText={inputClassText}
-        setInputClassText={setInputClassText}
-        setClassList={setClassList}
         setOpenClassModal={setOpenClassModal}
-        userId={userId}
+        user={user}
       /> }
         <LandingPage />
         <HomeHeader />

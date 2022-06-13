@@ -107,3 +107,8 @@ hr {
   position: relative;
   right: 1rem;
 }
+
+.class-title {
+  position: relative;
+  top: 12px;
+}

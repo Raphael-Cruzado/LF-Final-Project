@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ClassList from './class-list';
 import {
   CDBSidebar,
@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as FaIcons from 'react-icons/fa';
 
-export default function SideBar({ toggleClassModal, classList, setClassList, classData }) {
+export default function SideBar({ toggleClassModal, user, classData }) {
   const [show, setShow] = useState('');
   const [log, setLog] = useState('');
   const [active, setActive] = useState(true);
@@ -30,10 +30,12 @@ export default function SideBar({ toggleClassModal, classList, setClassList, cla
             className="text-decoration-none"
             style={{ color: 'inherit' }}
           >
+            {/* // cannot read props of firstName */}
+            {/* {user[0].firstName + ' ' + user[0].lastName } */}
             username
           </a>
         </CDBSidebarHeader>
-        <CDBSidebarContent >
+        <CDBSidebarContent>
           <CDBSidebarMenu>
             <h4
             id='class-header'>{show}
@@ -43,8 +45,6 @@ export default function SideBar({ toggleClassModal, classList, setClassList, cla
             </h4>
             <ul className='class-list'>
               <ClassList
-              classList={classList}
-              setClassList={setClassList}
               classData={classData}
               />
             </ul>

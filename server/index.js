@@ -81,7 +81,7 @@ app.get('/api/classes/:classId', (req, res, next) => {
 
 app.post('/api/classes', (req, res, next) => {
   const className = req.body.classItemText;
-  const userId = req.body.user;
+  const userId = req.body.userId;
   if (!className) {
     throw new ClientError(400, 'class name is a required field');
   }

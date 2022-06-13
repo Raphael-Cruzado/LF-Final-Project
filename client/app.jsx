@@ -8,30 +8,29 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       route: parseRoute(window.location.hash),
-      userId: [],
+      user: [],
       classData: []
     };
-    this.getUserId = this.getUserId.bind(this);
+    this.getUser = this.getUser.bind(this);
     this.getClassData = this.getClassData.bind(this);
   }
 
   componentDidMount() {
+    this.getUser();
+    this.getClassData();
+    // this.setState(this.getUser());
+    // this.setState(this.getClassData());
     window.addEventListener('hashchange', e => {
       e.preventDefault();
       this.setState({ route: parseRoute(window.location.hash) });
     });
-    this.setState(this.getUserId());
-    this.setState(this.getClassData());
+
   }
 
-  componentDidUpdate() {
-    console.log('component did mount');
-  }
-
-  getUserId() {
+  getUser() {
     fetch('/api/users')
       .then(res => res.json())
-      .then(data => data.map(user => this.state.userId.push(user.userId)));
+      .then(data => data.map(user => this.state.user.push(user)));
   }
 
   getClassData() {
@@ -43,7 +42,7 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Home userId={this.state.userId} classData={this.state.classData} />;
+      return <Home user={this.state.user} classData={this.state.classData} />;
     }
     if (route.path === 'login') {
       return <Login />;
@@ -51,7 +50,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log('classData: ', this.state.classData);
     return (
       <>
       {this.renderPage()}

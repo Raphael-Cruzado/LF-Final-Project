@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 } from 'react-bootstrap/';
 import {
@@ -8,7 +8,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function ClassModal({ setOpenClassModal, inputClassText, setInputClassText, classList, setClassList, userId }) {
+export default function ClassModal({ setOpenClassModal, classList, setClassList, user }) {
+  const [inputClassText, setInputClassText] = useState('');
 
   const inputTextHandler = e => {
     setInputClassText(e.target.value);
@@ -16,13 +17,9 @@ export default function ClassModal({ setOpenClassModal, inputClassText, setInput
 
   const submitClassHandler = e => {
     e.preventDefault();
-    setClassList([
-      // set an id at the end of the object when using the db, but for now, 1
-      ...classList, { text: inputClassText, id: Math.random() }
-    ]);
     const classItemText = inputClassText;
-    const user = userId[0];
-    const userObject = { classItemText, user };
+    const userId = user[0].userId;
+    const userObject = { classItemText, userId };
     fetch('/api/classes', {
       method: 'POST',
       headers: {
@@ -48,7 +45,8 @@ export default function ClassModal({ setOpenClassModal, inputClassText, setInput
           type="text"
           placeholder="Insert new Class here"
           color="success"
-          onChange={inputTextHandler} />
+          onChange={inputTextHandler}
+          />
         <div className='modal-footer'>
           <CDBBtn className='modal-btn' type='submit' circle>
             <h4>Create</h4>
