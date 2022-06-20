@@ -9,10 +9,12 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash),
       user: [],
-      classData: []
+      classData: [],
+      deckData: []
     };
     this.getUser = this.getUser.bind(this);
     this.getClassData = this.getClassData.bind(this);
+    this.getDeckData = this.getDeckData.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +37,12 @@ export default class App extends React.Component {
     fetch('api/classes')
       .then(res => res.json())
       .then(data => data.map(Class => this.state.classData.push(Class)));
+  }
+
+  getDeckData() {
+    fetch('/api/decks')
+      .then(res => res.json())
+      .then(data => data.map(deck => this.state.deckData.push(deck)));
   }
 
   renderPage() {

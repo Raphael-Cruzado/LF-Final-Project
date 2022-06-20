@@ -117,6 +117,41 @@ app.delete('/api/classes/:classId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/decks', (req, res, next) => {
+  const sql = `
+    select *
+    from "decks"
+    order by "deckId"
+  `;
+  db.query(sql)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/decks/:deckId', (req, res, next) => {
+  const deckId = Number(req.params.classId);
+  if (!Number.isInteger(deckId) || deckId < 1) {
+    throw new ClientError(400, 'deckId must be positive Interger');
+  }
+  const sql = `
+    select *
+    from "decks"
+    where "deckId" = $1
+  `;
+  const params = [deckId];
+  db.query(sql, params)
+    .then(result => {
+      res.json(result.rows);
+    })
+    .catch(err => next(err));
+});
+
+// app.post('api/decks', (req, res, next) => {
+//   const deckName = req.body;
+// });
+
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {
