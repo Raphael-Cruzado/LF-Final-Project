@@ -8,11 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DeckModal from '../components/deck-modal';
 import DeckList from './deck-list';
 
-export default function HomeBody() {
+export default function HomeBody({ deckData }) {
   const [openDeckModal, setOpenDeckModal] = useState(false);
   const [inputDeckText, setInputDeckText] = useState('');
   const [deckList, setDeckList] = useState([]);
-
   return (
     <>
       <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
@@ -20,6 +19,7 @@ export default function HomeBody() {
           <DeckList
           deckList={deckList}
           setDeckList={setDeckList}
+          deckData={deckData}
           />
         </ul>
         <Row className='deck-row'>

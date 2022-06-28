@@ -5,8 +5,8 @@ import {
 } from 'cdbreact';
 import * as FaIcons from 'react-icons/fa';
 
-function DeckList({ deckList, setDeckList }) {
-
+function DeckList({ deckList, setDeckList, deckData }) {
+  console.log(deckData);
   const deleteHandler = e => {
     setDeckList(deckList.filter(deckItem => deckItem.id !== e.id));
   };

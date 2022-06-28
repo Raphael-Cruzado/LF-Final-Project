@@ -10,7 +10,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home({ user, classData }) {
+export default function Home({ user, classData, deckData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ export default function Home({ user, classData }) {
       /> }
         <LandingPage />
         <HomeHeader />
-        <HomeBody />
+        <HomeBody deckData={deckData} />
       </CDBContainer>
   </div>
   );

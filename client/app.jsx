@@ -20,6 +20,7 @@ export default class App extends React.Component {
   componentDidMount() {
     this.getUser();
     this.getClassData();
+    this.getDeckData();
     window.addEventListener('hashchange', e => {
       e.preventDefault();
       this.setState({ route: parseRoute(window.location.hash) });
@@ -51,6 +52,7 @@ export default class App extends React.Component {
       return <Home
       user={this.state.user}
       classData={this.state.classData}
+      deckData={this.state.deckData}
       />;
     }
     if (route.path === 'login') {
@@ -59,6 +61,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.deckData);
     return (
       <>
       {this.renderPage()}
