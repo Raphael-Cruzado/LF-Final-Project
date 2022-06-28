@@ -11,14 +11,11 @@ import DeckList from './deck-list';
 export default function HomeBody({ deckData }) {
   const [openDeckModal, setOpenDeckModal] = useState(false);
   const [inputDeckText, setInputDeckText] = useState('');
-  const [deckList, setDeckList] = useState([]);
   return (
     <>
       <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
         <ul id='deck-list'>
           <DeckList
-          deckList={deckList}
-          setDeckList={setDeckList}
           deckData={deckData}
           />
         </ul>
