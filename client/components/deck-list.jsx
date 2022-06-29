@@ -6,7 +6,6 @@ import {
 import * as FaIcons from 'react-icons/fa';
 
 function DeckList({ deckData }) {
-  console.log(deckData);
   // const deleteHandler = e => {
   //   deckData.filter(deckItem => deckItem.id !== e.id);
   // };
@@ -16,7 +15,7 @@ function DeckList({ deckData }) {
       <>
       {/* <Row className='deck-row'> */}
           {/* // set the id here for wen u do db stuff deckItem.id */}
-        <li key={deckData.deckId} className='deck-row flex-row space-content'>
+        <li key={deckItem.deckId} className='deck-row flex-row space-content'>
           <Col className='flex-row'>
             <FaIcons.FaBookmark cursor='pointer' size={39} />
             <h3 className='deck-title'>{deckItem.deckName}</h3>

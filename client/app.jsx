@@ -31,19 +31,19 @@ export default class App extends React.Component {
   getUser() {
     fetch('/api/users')
       .then(res => res.json())
-      .then(data => data.map(user => this.state.user.push(user)));
+      .then(data => this.setState({ user: data }));
   }
 
   getClassData() {
     fetch('api/classes')
       .then(res => res.json())
-      .then(data => data.map(Class => this.state.classData.push(Class)));
+      .then(data => this.setState({ classData: data }));
   }
 
   getDeckData() {
     fetch('/api/decks')
       .then(res => res.json())
-      .then(data => data.map(deck => this.state.deckData.push(deck)));
+      .then(data => this.setState({ deckData: data }));
   }
 
   renderPage() {
