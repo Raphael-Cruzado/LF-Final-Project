@@ -11,6 +11,7 @@ import DeckList from './deck-list';
 export default function HomeBody({ deckData }) {
   const [openDeckModal, setOpenDeckModal] = useState(false);
   const [inputDeckText, setInputDeckText] = useState('');
+
   return (
     <>
       <CDBBox display='flex' justify-content='flex-start' id='deck-wrapper'>
