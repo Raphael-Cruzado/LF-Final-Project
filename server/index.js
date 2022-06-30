@@ -148,7 +148,7 @@ app.get('/api/decks/:deckId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.post('api/decks', (req, res, next) => {
+app.post('/api/decks', (req, res, next) => {
   const deckName = req.body.deckItemText;
   const classId = req.body.classId;
   const sql = `
@@ -159,10 +159,25 @@ app.post('api/decks', (req, res, next) => {
   const params = [deckName, classId];
   db.query(sql, params)
     .then(result => {
-      console.log(result);
       const [newDeck] = result.rows;
       res.status(201).json(newDeck);
     })
+    .catch(err => next(err));
+});
+
+app.delete('/api/decks/:deckId', (req, res, next) => {
+  const deckId = Number(req.params.deckId);
+  if (!Number.isInteger(deckId) || deckId < 1) {
+    throw new ClientError(400, 'deckId must be positive Interger');
+  }
+  const sql = `
+    delete from "decks"
+    where "deckId" = $1
+    returning *
+  `;
+  const params = [deckId];
+  db.query(sql, params)
+    .then(result => res.json(result.rows))
     .catch(err => next(err));
 });
 
