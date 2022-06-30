@@ -6,9 +6,14 @@ import {
 import * as FaIcons from 'react-icons/fa';
 
 function DeckList({ deckData }) {
-  // const deleteHandler = e => {
-  //   deckData.filter(deckItem => deckItem.id !== e.id);
-  // };
+  const deleteHandler = e => {
+    fetch(`/api/decks/${e}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  };
 
   return (
     deckData.map(deckItem =>
@@ -25,7 +30,11 @@ function DeckList({ deckData }) {
               <FaIcons.FaPlay />
             </CDBBtn>
             <FaIcons.FaPen cursor='pointer' size={45} className='center-deck-item' />
-            <FaIcons.FaTrashAlt value={deckData} cursor='pointer' size={45} className='center-deck-item' />
+            <FaIcons.FaTrashAlt
+            onClick = {() => deleteHandler(deckItem.deckId)}
+            value={deckData}
+            cursor='pointer' size={45}
+            className='center-deck-item' />
           </Col>
         </li>
       {/* </Row> */}
@@ -34,6 +43,4 @@ function DeckList({ deckData }) {
     )
   );
 }
-// onClick = {() => deleteHandler(deckItem)}
-
 export default DeckList;
