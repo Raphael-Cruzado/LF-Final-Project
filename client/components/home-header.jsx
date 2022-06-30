@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap/';
 import * as FaIcons from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function HomeHeader() {
+export default function HomeHeader({ classData, deckData }) {
   return (
     <>
       <CDBBox id='home-header' display='flex' justifyContent='start'>
@@ -17,7 +17,7 @@ export default function HomeHeader() {
             </Col>
           <Col>
             <Col id='header-name'>
-              <h1>Class Name </h1>
+              <h1>class name</h1>
               <span id='pen'>
                 <FaIcons.FaPen size={30} style={{ position: 'relative', left: '7px' }} />
                 <FaIcons.FaTrashAlt

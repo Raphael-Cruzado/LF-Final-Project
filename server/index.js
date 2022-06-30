@@ -148,9 +148,23 @@ app.get('/api/decks/:deckId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.post('api/decks', (req, res, next) => {
-//   const deckName = req.body;
-// });
+app.post('api/decks', (req, res, next) => {
+  const deckName = req.body.deckItemText;
+  const classId = req.body.classId;
+  const sql = `
+  insert into "decks" ("deckName", "classId")
+  values ($1, $2)
+  returning *
+  `;
+  const params = [deckName, classId];
+  db.query(sql, params)
+    .then(result => {
+      console.log(result);
+      const [newDeck] = result.rows;
+      res.status(201).json(newDeck);
+    })
+    .catch(err => next(err));
+});
 
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;

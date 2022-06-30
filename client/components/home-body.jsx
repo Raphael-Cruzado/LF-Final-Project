@@ -33,8 +33,7 @@ export default function HomeBody({ deckData }) {
         toggleDeckModal={setOpenDeckModal}
         inputDeckText={inputDeckText}
         setInputDeckText={setInputDeckText}
-        deckList={deckList}
-        setDeckList={setDeckList}
+        deckData={deckData}
         />}
       </CDBBox>
     </>

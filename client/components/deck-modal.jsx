@@ -9,20 +9,29 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/modal.css';
 
-export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeckText, deckList, setDeckList }) {
+export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeckText, deckData }) {
   const inputTextHandler = e => {
     setInputDeckText(e.target.value);
   };
 
   const submitDeckHandler = e => {
     e.preventDefault();
-    setDeckList([
-      ...deckList, { text: inputDeckText, id: Math.random() }
-    ]);
+    const deckItemText = inputDeckText;
+    const classId = deckData[0].classId;
+    const deckObject = { deckItemText, classId };
+    fetch('/api/decks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(deckObject)
+    })
+      .then(res => res.json())
+      .then(data => deckData.push(data));
   };
 
   return (
-    <form>
+    <form onSubmit={submitDeckHandler}>
       <div className='modal-container'>
         <div>
           <button className='close-btn' onClick={() => { toggleDeckModal(false); }}> X </button>
@@ -36,9 +45,10 @@ export default function DeckModal({ toggleDeckModal, inputDeckText, setInputDeck
         value={inputDeckText}
         type="text"
         placeholder="Insert new Deck here"
-        color="success" />
+        color="success"
+        />
         <div className='modal-footer'>
-          <CDBBtn onClick={submitDeckHandler} type='submit' className='modal-btn' circle>
+          <CDBBtn type='submit' className='modal-btn' circle>
             <h4>Create</h4>
           </CDBBtn>
         </div>

@@ -27,7 +27,7 @@ export default function Home({ user, classData, deckData }) {
         classData={classData}
       /> }
         <LandingPage />
-        <HomeHeader />
+        <HomeHeader classData={classData}/>
         <HomeBody deckData={deckData} />
       </CDBContainer>
   </div>
