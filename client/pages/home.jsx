@@ -4,6 +4,7 @@ import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
 import ClassModal from '../components/class-modal';
 import LandingPage from '../components/landing-page';
+import flashCardCarousel from '../components/fc-carousel';
 import {
   CDBContainer
 } from 'cdbreact';
@@ -29,6 +30,7 @@ export default function Home({ user, classData, deckData }) {
         <LandingPage />
         <HomeHeader classData={classData}/>
         <HomeBody deckData={deckData} />
+        <flashCardCarousel />
       </CDBContainer>
   </div>
   );
