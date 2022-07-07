@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SideBar from '../components/side-bar';
 import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
 import ClassModal from '../components/class-modal';
 import LandingPage from '../components/landing-page';
-import flashCardCarousel from '../components/fc-carousel';
+// import flashCardCarousel from '../components/fc-carousel';
 import {
   CDBContainer
 } from 'cdbreact';
@@ -29,17 +29,18 @@ export default function Home({ user, classData, deckData, flashCardData }) {
         user={user}
         classData={classData}
       /> }
-      <Switch>
-        <Route path="/">
-          <LandingPage />
-        </Route>
-        <Route path="/">
+      <Routes>
+        <Route path="/landing-page" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={
+          <>
           <HomeHeader classData={classData} />
-          <HomeBody deckData={deckData}/>
-        </Route>
-
-        <flashCardCarousel flashCardData={flashCardData} />
-      </Switch>
+          <HomeBody deckData={deckData} />
+          </>}
+        />
+      </Routes>
+        {/* <flashCardCarousel flashCardData={flashCardData} /> */}
       </CDBContainer >
     </div>
   </Router>
