@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SideBar from '../components/side-bar';
 import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
@@ -11,11 +12,12 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home({ user, classData, deckData }) {
+export default function Home({ user, classData, deckData, flashCardData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
 
   return (
-  <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
+  <Router>
+    <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
       <SideBar
         toggleClassModal={() => setOpenClassModal(!openClassModal) }
         classData={classData}
@@ -27,11 +29,20 @@ export default function Home({ user, classData, deckData }) {
         user={user}
         classData={classData}
       /> }
-        <LandingPage />
-        <HomeHeader classData={classData}/>
-        <HomeBody deckData={deckData} />
-        <flashCardCarousel />
-      </CDBContainer>
-  </div>
+      <Switch>
+        <Route path="/">
+          <LandingPage />
+        </Route>
+        <Route path="/">
+          <HomeHeader classData={classData} />
+          <HomeBody deckData={deckData}/>
+        </Route>
+
+        <flashCardCarousel flashCardData={flashCardData} />
+      </Switch>
+      </CDBContainer >
+    </div>
+  </Router>
+
   );
 }
