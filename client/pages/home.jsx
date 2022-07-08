@@ -5,7 +5,7 @@ import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
 import ClassModal from '../components/class-modal';
 import LandingPage from '../components/landing-page';
-// import flashCardCarousel from '../components/fc-carousel';
+import flashCardCarousel from '../components/fc-carousel';
 import {
   CDBContainer
 } from 'cdbreact';
@@ -29,7 +29,7 @@ export default function Home({ user, classData, deckData, cardData }) {
         user={user}
         classData={classData}
       /> }
-      <Routes>
+      {/* <Routes>
         <Route path="/landing-page" element={<LandingPage />} />
         <Route
           path="/"
@@ -39,8 +39,8 @@ export default function Home({ user, classData, deckData, cardData }) {
           <HomeBody deckData={deckData} />
           </>}
         />
-      </Routes>
-        {/* <flashCardCarousel cardData={cardData} /> */}
+      </Routes> */}
+        <flashCardCarousel cardData={cardData} />
       </CDBContainer >
     </div>
   </Router>
