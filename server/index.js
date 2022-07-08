@@ -181,6 +181,17 @@ app.delete('/api/decks/:deckId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/cards', (req, res, next) => {
+  const sql = `
+    select *
+    from "cards"
+    order by "cardId"
+  `;
+  db.query(sql)
+    .then(result => res.json(result.rows))
+    .catch(err => next(err));
+});
+
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {

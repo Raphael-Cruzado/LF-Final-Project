@@ -10,17 +10,20 @@ export default class App extends React.Component {
       route: parseRoute(window.location.hash),
       user: [],
       classData: [],
-      deckData: []
+      deckData: [],
+      cardData: []
     };
     this.getUser = this.getUser.bind(this);
     this.getClassData = this.getClassData.bind(this);
     this.getDeckData = this.getDeckData.bind(this);
+    this.getCardData = this.getCardData.bind(this);
   }
 
   componentDidMount() {
     this.getUser();
     this.getClassData();
     this.getDeckData();
+    this.getCardData();
     window.addEventListener('hashchange', e => {
       e.preventDefault();
       this.setState({ route: parseRoute(window.location.hash) });
@@ -46,6 +49,12 @@ export default class App extends React.Component {
       .then(data => this.setState({ deckData: data }));
   }
 
+  getCardData() {
+    fetch('/api/cards')
+      .then(res => res.json())
+      .then(data => this.setState({ cardData: data }));
+  }
+
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
@@ -61,6 +70,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.cardData);
     return (
       <>
       {this.renderPage()}
