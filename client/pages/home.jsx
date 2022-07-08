@@ -19,7 +19,7 @@ export default function Home({ user, classData, deckData, cardData }) {
   <Router>
     <div style={{ display: 'flex', height: '100vh', width: '100vw', overflow: 'scroll initial' }}>
       <SideBar
-        toggleClassModal={() => setOpenClassModal(!openClassModal) }
+        toggleClassModal={() => setOpenClassModal(!openClassModal)}
         classData={classData}
         user={user}
       />
@@ -29,21 +29,21 @@ export default function Home({ user, classData, deckData, cardData }) {
         user={user}
         classData={classData}
       /> }
-      {/* <Routes>
+      <Routes>
         <Route path="/landing-page" element={<LandingPage />} />
         <Route
           path="/"
           element={
           <>
-          <HomeHeader classData={classData} />
-          <HomeBody deckData={deckData} />
+          <flashCardCarousel cardData={cardData} />
+          {/* <HomeHeader classData={classData} />
+          <HomeBody deckData={deckData} /> */}
           </>}
         />
-      </Routes> */}
-        <flashCardCarousel cardData={cardData} />
+      </Routes>
+
       </CDBContainer >
     </div>
   </Router>
-
   );
 }
