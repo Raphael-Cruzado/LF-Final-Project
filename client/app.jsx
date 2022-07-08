@@ -62,6 +62,7 @@ export default class App extends React.Component {
       user={this.state.user}
       classData={this.state.classData}
       deckData={this.state.deckData}
+      cardData={this.state.cardData}
       />;
     }
     if (route.path === 'login') {

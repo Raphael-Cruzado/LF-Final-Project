@@ -12,7 +12,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home({ user, classData, deckData, flashCardData }) {
+export default function Home({ user, classData, deckData, cardData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ export default function Home({ user, classData, deckData, flashCardData }) {
           </>}
         />
       </Routes>
-        {/* <flashCardCarousel flashCardData={flashCardData} /> */}
+        {/* <flashCardCarousel cardData={cardData} /> */}
       </CDBContainer >
     </div>
   </Router>
