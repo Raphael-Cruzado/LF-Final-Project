@@ -70,7 +70,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.cardData);
     return (
       <>
       {this.renderPage()}
