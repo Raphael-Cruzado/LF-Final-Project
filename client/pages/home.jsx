@@ -10,8 +10,6 @@ import {
   CDBContainer
 } from 'cdbreact';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function Home({ user, classData, deckData, cardData }) {
   const [openClassModal, setOpenClassModal] = useState(false);
 
@@ -35,13 +33,13 @@ export default function Home({ user, classData, deckData, cardData }) {
           path="/"
           element={
           <>
-          <FlashCardCarousel cardData={cardData} />
-          {/* <HomeHeader classData={classData} />
-          <HomeBody deckData={deckData} /> */}
-          </>}
+          {/* <FlashCardCarousel cardData={cardData} /> */}
+          <HomeHeader classData={classData} />
+          <HomeBody deckData={deckData} />
+          </>
+          }
         />
       </Routes>
-
       </CDBContainer >
     </div>
   </Router>

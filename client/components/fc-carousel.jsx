@@ -1,43 +1,16 @@
 import React from 'react';
-import {
-  CDBCarousel,
-  CDBCarouselItem,
-  CDBCarouselInner,
-  CDBView,
-  CDBContainer
-} from 'cdbreact';
+import '../node_modules/bootstrap';
 
 export default function FlashCardCarousel() {
   return (
-  <CDBContainer>
-    <CDBContainer>
-      <CDBCarousel
-        activeItem={1}
-        length={3}
-        showControls={true}
-        showIndicators={true}
-        className="z-depth-1"
-        slide
-      >
-        <CDBCarouselInner>
-          <CDBCarouselItem itemId="1">
-            <CDBView>
-              <img className="d-block w-100" src="https://imgur.com/oPU7JbX" alt="First slide" />
-            </CDBView>
-          </CDBCarouselItem>
-          <CDBCarouselItem itemId="2">
-            <CDBView>
-              <img className="d-block w-100" src="https://imgur.com/EgVSItY" alt="Second slide" />
-            </CDBView>
-          </CDBCarouselItem>
-          <CDBCarouselItem itemId="3">
-            <CDBView>
-              <img className="d-block w-100" src="https://imgur.com/c1aFo29" alt="Third slide" />
-            </CDBView>
-          </CDBCarouselItem>
-        </CDBCarouselInner>
-      </CDBCarousel>
-    </CDBContainer>
-  </CDBContainer>
+    <div className="card" style={{ width: '18rem' }}>
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card&apos;s content.</p>
+        <a href="#" className="card-link">Card link</a>
+        <a href="#" className="card-link">Another link</a>
+      </div>
+    </div>
   );
 }
