@@ -33,9 +33,9 @@ export default function Home({ user, classData, deckData, cardData }) {
           path="/"
           element={
           <>
-          {/* <FlashCardCarousel cardData={cardData} /> */}
-          <HomeHeader classData={classData} />
-          <HomeBody deckData={deckData} />
+          <FlashCardCarousel cardData={cardData} />
+          {/* <HomeHeader classData={classData} />
+          <HomeBody deckData={deckData} /> */}
           </>
           }
         />
