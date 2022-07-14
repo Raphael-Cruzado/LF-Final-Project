@@ -112,3 +112,13 @@ hr {
   position: relative;
   top: 12px;
 }
+
+#study-card {
+  width: 20rem;
+  height: 4rem;
+  background-color: #b7d7bf;
+  border-style: none;
+  margin-right: 5rem;
+  position: relative;
+  bottom: 1rem;
+}

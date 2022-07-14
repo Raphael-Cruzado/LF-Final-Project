@@ -5,6 +5,7 @@ import HomeHeader from '../components/home-header';
 import HomeBody from '../components/home-body';
 import ClassModal from '../components/class-modal';
 import LandingPage from '../components/landing-page';
+import FcForm from '../components/fc-form';
 import FlashCardCarousel from '../components/fc-carousel';
 import {
   CDBContainer
@@ -33,7 +34,8 @@ export default function Home({ user, classData, deckData, cardData }) {
           path="/"
           element={
           <>
-          <FlashCardCarousel cardData={cardData} />
+          <FcForm />
+          {/* <FlashCardCarousel cardData={cardData} /> */}
           {/* <HomeHeader classData={classData} />
           <HomeBody deckData={deckData} /> */}
           </>

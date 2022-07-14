@@ -24,7 +24,7 @@ export default function HomeBody({ deckData }) {
           <Col className='flex-row'>
             <FaIcons.FaPlusSquare size={50}
             cursor='pointer'
-            onClick={() => { setOpenDeckModal(true); }} />
+            onClick={() => { setOpenDeckModal(!openDeckModal); }} />
             <h2 className='deck-title' onClick={() => { setOpenDeckModal(true); }}>Create New Deck</h2>
           </Col>
         </Row>

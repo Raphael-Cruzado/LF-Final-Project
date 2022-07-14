@@ -41,7 +41,7 @@ export default function SideBar({ toggleClassModal, user, classData }) {
             id='class-header'>{show}
             <FaIcons.FaRegCalendarPlus size={29}
               cursor='pointer'
-              onClick={() => toggleClassModal(true)} />
+              onClick={() => toggleClassModal(!toggleClassModal)} />
             </h4>
             <ul className='class-list'>
               <ClassList

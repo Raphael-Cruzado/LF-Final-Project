@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function FlashCardCarousel() {
+  const [flip, setFlip] = useState(false);
   return (
     <div className="card" style={{ width: '18rem' }}>
       <div className="card-body">
