@@ -34,7 +34,7 @@ export default function Home({ user, classData, deckData, cardData }) {
           path="/"
           element={
           <>
-          <FcForm />
+          <FcForm cardData={cardData} />
           {/* <FlashCardCarousel cardData={cardData} /> */}
           {/* <HomeHeader classData={classData} />
           <HomeBody deckData={deckData} /> */}

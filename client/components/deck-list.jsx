@@ -39,7 +39,6 @@ function DeckList({ deckData }) {
         </li>
       {/* </Row> */}
       </>
-
     )
   );
 }

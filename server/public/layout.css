@@ -1,5 +1,13 @@
 .card-form-container {
   display: flex;
-  border-left: 100%;
-  border-right: 100%;
+  align-items: center;
+  margin-top: 10rem;
+  width: 100%;
+}
+
+.card-form-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
