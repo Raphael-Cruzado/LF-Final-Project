@@ -34,9 +34,9 @@ function FcForm({ cardData }) {
           <Col id='card-list'>
           <>
             <ul>
-              <li key={card.cardId}>
+              <li className='card-item' key={card.cardId}>
                 <CDBCard style={{ width: '25rem' }}>
-                  <CDBCardBody>
+                  <CDBCardBody className='card-content'>
                     <h5>{card.frontContent}</h5>
                   </CDBCardBody>
                 </CDBCard>

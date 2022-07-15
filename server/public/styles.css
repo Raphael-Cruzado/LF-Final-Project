@@ -122,3 +122,8 @@ hr {
   position: relative;
   bottom: 1rem;
 }
+
+.card-item {
+  display: flex;
+  list-style: none;
+}
