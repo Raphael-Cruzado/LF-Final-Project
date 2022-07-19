@@ -1,3 +1,9 @@
+* {
+  font-family:
+    "Open Sans",
+    sans-serif;
+}
+
 #class-header {
   display: flex;
   justify-content: space-around;

@@ -4,8 +4,6 @@ import {
   CDBInput,
   CDBCard,
   CDBCardBody,
-  CDBCardTitle,
-  CDBCardText,
   CDBContainer
 } from 'cdbreact';
 import { Col } from 'react-bootstrap/';
@@ -37,7 +35,7 @@ function FcForm({ cardData }) {
               <li className='card-item' key={card.cardId}>
                 <CDBCard style={{ width: '25rem' }}>
                   <CDBCardBody className='card-content'>
-                    <h5>{card.frontContent}</h5>
+                    <h3>{card.frontContent}</h3>
                   </CDBCardBody>
                 </CDBCard>
               </li>
