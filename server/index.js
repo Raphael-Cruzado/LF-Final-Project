@@ -192,6 +192,25 @@ app.get('/api/cards', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/cards', (req, res, next) => {
+  const frontContent = req.body.frontContent;
+  const backContent = req.body.backContent;
+  const deckId = req.body.deckId;
+
+  const sql = `
+    insert into "cards" ("frontContent", "backContent", "deckId")
+    values ($1, $2, $3)
+    returning *
+  `;
+  const params = [frontContent, backContent, deckId]; // deckId=12
+  db.query(sql, params)
+    .then(result => {
+      const [newCard] = result.rows;
+      res.status(201).json(newCard);
+    })
+    .catch(err => next(err));
+});
+
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   if (!firstName || !lastName || !email || !password) {

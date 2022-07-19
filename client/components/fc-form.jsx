@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CDBBtn,
   CDBInput,
@@ -10,7 +10,20 @@ import { Col } from 'react-bootstrap/';
 // import * as FaIcons from 'react-icons/fa';
 
 function FcForm({ cardData }) {
-  console.log(cardData);
+  const [inputFrontText, setInputFrontText] = useState('');
+  const [inputBackText, setInputBackText] = useState('');
+
+  const inputHandlerFront = e => {
+    setInputFrontText(e.target.value);
+  };
+  const inputHandlerBack = e => {
+    setInputBackText(e.target.value);
+  };
+
+  const submitDeckHandler = e => {
+    // see if post method works first
+  };
+
   return (
     cardData.map(card =>
       <>
@@ -19,9 +32,21 @@ function FcForm({ cardData }) {
             {/* <CDBBtn id='study-card' style={{ position: 'relative', left: '2.5rem' }} circle>
               <h4>Study Deck</h4>
             </CDBBtn> */}
-            <form>
-              <CDBInput type='text' placeholder='Front Content' style={{ width: '40rem' }} />
-              <CDBInput type='text' placeholder='Back Content' style={{ width: '40rem' }} />
+            <form onSubmit={submitDeckHandler}>
+              <CDBInput
+              value={inputFrontText}
+              type='text'
+              placeholder='Front Content'
+              style={{ width: '40rem' }}
+              onChange={inputHandlerFront}
+              />
+              <CDBInput
+              value={inputBackText}
+              type='text'
+              placeholder='Back Content'
+              style={{ width: '40rem' }}
+              onChange={inputHandlerBack}
+              />
               <CDBBtn id='study-card' style={{ position: 'relative', top: '.5rem', left: '10rem' }} circle>
                 <h4>Create Card</h4>
               </CDBBtn>
