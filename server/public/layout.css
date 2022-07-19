@@ -12,10 +12,12 @@
   width: 100%;
 }
 
-#card-list {
+.card-list {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  right: 1.5rem;
 }
 
 .card-content {

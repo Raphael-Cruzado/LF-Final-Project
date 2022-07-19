@@ -29,13 +29,13 @@ function FcForm({ cardData }) {
           </Col>
         </CDBContainer>
         <CDBContainer className='card-form-container'>
-          <Col id='card-list'>
+          <Col>
           <>
-            <ul>
+            <ul className='card-list'>
               <li className='card-item' key={card.cardId}>
-                <CDBCard style={{ width: '25rem' }}>
+                <CDBCard>
                   <CDBCardBody className='card-content'>
-                    <h3>{card.frontContent}</h3>
+                    <h5>{card.frontContent}</h5>
                   </CDBCardBody>
                 </CDBCard>
               </li>
@@ -49,10 +49,3 @@ function FcForm({ cardData }) {
 }
 
 export default FcForm;
-
-// {/* <CDBCard style={{ width: '25rem' }}>
-//   <CDBCardBody>
-//     <CDBCardTitle>Heading</CDBCardTitle>
-//     <CDBCardText>Paragraph</CDBCardText>
-//   </CDBCardBody>
-// </CDBCard> */}

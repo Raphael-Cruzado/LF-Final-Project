@@ -112,6 +112,7 @@ hr {
   list-style: none;
   position: relative;
   right: 1rem;
+  border-radius: 5rem;
 }
 
 .class-title {
@@ -131,5 +132,14 @@ hr {
 
 .card-item {
   display: flex;
+  justify-content: center;
   list-style: none;
+  width: 25rem;
+  height: 10rem;
+  border-radius: 10%;
+}
+
+.card-content {
+  margin-top: 13%;
+  margin-bottom: 10%;
 }
