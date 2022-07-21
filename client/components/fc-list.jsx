@@ -4,22 +4,22 @@ import {
   CDBCardBody,
   CDBContainer
 } from 'cdbreact';
-import { Col } from 'react-bootstrap/';
+import { Col, Card } from 'react-bootstrap/';
 
 function FCList({ cardData }) {
   return (
     cardData.map(card =>
     <>
-      <CDBContainer className='card-form-container'>
+      <CDBContainer className='card-container'>
         <Col>
           <>
             <ul className='card-list'>
               <li className='card-item' key={card.cardId}>
-                <CDBCard>
-                  <CDBCardBody className='card-content'>
+                <Card>
+                  <Card.Body className='card-content'>
                     <h5>{card.frontContent}</h5>
-                  </CDBCardBody>
-                </CDBCard>
+                  </Card.Body>
+                </Card>
               </li>
             </ul>
           </>
