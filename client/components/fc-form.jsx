@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import {
   CDBBtn,
   CDBInput,
-  CDBCard,
-  CDBCardBody,
   CDBContainer
 } from 'cdbreact';
 import { Col } from 'react-bootstrap/';
+import FCList from './fc-list';
 // import * as FaIcons from 'react-icons/fa';
 
 function FcForm({ cardData }) {
@@ -25,7 +24,6 @@ function FcForm({ cardData }) {
   };
 
   return (
-    cardData.map(card =>
       <>
         <CDBContainer className='card-form-container'>
           <Col className='card-form-card'>
@@ -51,25 +49,10 @@ function FcForm({ cardData }) {
                 <h4>Create Card</h4>
               </CDBBtn>
             </form>
-          </Col>
-        </CDBContainer>
-        <CDBContainer className='card-form-container'>
-          <Col>
-          <>
-            <ul className='card-list'>
-              <li className='card-item' key={card.cardId}>
-                <CDBCard>
-                  <CDBCardBody className='card-content'>
-                    <h5>{card.frontContent}</h5>
-                  </CDBCardBody>
-                </CDBCard>
-              </li>
-            </ul>
-          </>
+            <FCList cardData={cardData}/>
           </Col>
         </CDBContainer>
       </>
-    )
   );
 }
 
