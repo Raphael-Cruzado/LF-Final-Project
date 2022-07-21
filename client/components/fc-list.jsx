@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  CDBCard,
-  CDBCardBody,
   CDBContainer
 } from 'cdbreact';
 import { Col, Card } from 'react-bootstrap/';
