@@ -4,11 +4,18 @@ export default function FlashCardCarousel({ cardData }) {
   const [flip, setFlip] = useState(false);
   console.log(cardData);
   return (
-    <div
-    className={`card ${flip ? 'flip' : ''}`}
-    onClick={() => setFlip(!flip)}
-    >
+    cardData.map(card =>
+      <>
+        <div
+          className={`card ${flip ? 'flip' : ''}`}
+          onClick={() => setFlip(!flip)}
+        >
+          <div className='front'>{card.frontContent}</div>
+          <div className='back'>{card.backContent}</div>
+          {flip ? card.backContent : card.frontContent}
+        </div>
+      </>
+    )
 
-    </div>
   );
 }
