@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-.card-container {
+.list-container {
   display: flex;
   align-items: center;
   margin-top: 5rem;
@@ -34,4 +34,10 @@
   justify-content: center;
   position: relative;
   right: 2.3rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  width: 100rem;
 }

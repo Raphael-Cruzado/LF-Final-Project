@@ -8,7 +8,7 @@ function FCList({ cardData }) {
   return (
     cardData.map(card =>
     <>
-      <CDBContainer className='card-container'>
+      <CDBContainer className='list-container'>
         <Col>
           <>
             <ul className='card-list'>

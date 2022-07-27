@@ -142,3 +142,14 @@ hr {
   margin-top: 13%;
   margin-bottom: 10%;
 }
+
+.card {
+  display: flex;
+  border-radius: 5rem;
+  background-color: black;
+}
+
+/* .card .front,
+.card .back {
+  padding: 1rem;
+} */
