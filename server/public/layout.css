@@ -35,9 +35,3 @@
   position: relative;
   right: 2.3rem;
 }
-
-.card-container {
-  display: flex;
-  flex-direction: row;
-  width: 100rem;
-}
